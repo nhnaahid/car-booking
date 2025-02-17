@@ -7,12 +7,25 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import MainLayout from './layouts/MainLayout';
+import Calendar from './pages/Calendar/Calendar';
+import AddBooking from './pages/AddBooking/AddBooking';
 
 
 const router = createBrowserRouter([
   {
-    path: "/", 
-    element: <div className='text-4xl text-red-400'>Hello world!</div>,
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <Calendar></Calendar>
+      },
+      {
+        path: "/add-booking",
+        element: <AddBooking></AddBooking>
+      }
+    ]
   },
 ]);
 
