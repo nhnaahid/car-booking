@@ -1,9 +1,56 @@
 import { GrCalendar } from "react-icons/gr";
 import { IoIosGitNetwork } from "react-icons/io";
 import { LuCalendarCheck2 } from "react-icons/lu";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 
-const Calendar = () => {
+import { ScheduleXCalendar, useCalendarApp } from "@schedule-x/react";
+import { createViewWeek, createViewDay, createViewMonthGrid } from "@schedule-x/calendar";
+import '@schedule-x/theme-default/dist/calendar.css'
+import { createEventsServicePlugin } from "@schedule-x/events-service";
+
+const CalendarPage = () => {
+    const allEvents = useLoaderData();
+    const events = allEvents["england-and-wales"].events
+    // console.log("Loaded events: ", events);
+
+    let calendarEvents = [];
+    let id = 1;
+    events.forEach(elem => {
+        const event = {
+            id: id++,
+            start: elem.date,
+            end: elem.date,
+            title: elem.title
+        }
+        calendarEvents.push(event);
+    });
+
+    console.log(calendarEvents);
+
+    // const demo = [
+    //     {
+    //         title: 'Event 1',
+    //         start: '2025-01-20',
+    //         end: '2025-01-20',
+    //         id: 1
+    //     }
+    // ]
+
+    const calendar = useCalendarApp({
+        views: [
+            createViewMonthGrid(),
+            createViewDay(),
+            createViewWeek(),
+        ],
+        defaultView: createViewMonthGrid,
+        events: calendarEvents,
+        selectedDate: "2025-01-01",
+        plugins: [
+            createEventsServicePlugin(),
+        ],
+    });
+
+
     return (
         <div className="flex gap-5">
             {/* sidebar */}
@@ -15,10 +62,10 @@ const Calendar = () => {
 
             {/* Main content */}
             <div className="border flex-1">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dolorem eveniet libero id qui nobis enim accusamus laudantium nisi laborum, aut blanditiis nostrum vitae, officiis quos cumque eum voluptatum reiciendis. Earum iste dolore iusto impedit facilis numquam incidunt illo neque ab reiciendis accusantium expedita, ad deserunt aut quae enim odio minima commodi vero maiores explicabo modi pariatur architecto non. Consectetur vero, laborum, nisi iste accusantium placeat quis tenetur doloremque, unde aperiam est qui distinctio voluptas similique commodi expedita. Excepturi omnis cum beatae ad? Dolorem facere, quas modi corporis dolores vel fugiat repudiandae placeat voluptate tempore laudantium, at minus assumenda iure recusandae praesentium doloremque nostrum suscipit tempora, nisi a labore. Ipsa eum cum, eos similique fuga rerum eius veritatis recusandae consequatur aliquam ad sapiente quas neque deleniti iusto adipisci error quasi officia, quibusdam asperiores. Quisquam maiores magnam ad minima quo illo, eius, repellendus animi necessitatibus doloribus facere? Quo quos facere, perferendis quam veritatis harum saepe molestiae accusantium, aliquid fugit tenetur eveniet, corporis rem officia doloribus blanditiis qui totam provident mollitia eius nihil autem itaque pariatur! Ipsam voluptas excepturi totam fugiat, a amet. Aliquid neque soluta architecto itaque tempora, ipsa molestiae cupiditate unde sed ipsam blanditiis ex! Eum alias beatae animi nostrum.</p>
+                <ScheduleXCalendar calendarApp={calendar}></ScheduleXCalendar>
             </div>
         </div>
     );
 };
 
-export default Calendar;    
+export default CalendarPage;

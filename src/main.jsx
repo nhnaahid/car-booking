@@ -19,7 +19,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Calendar></Calendar>
+        element: <Calendar></Calendar>,
+        loader: () => fetch('https://www.gov.uk/bank-holidays.json?ref=public_apis&utm_medium=website')
       },
       {
         path: "/add-booking",
