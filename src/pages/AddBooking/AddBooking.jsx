@@ -121,6 +121,13 @@ const AddBooking = () => {
                     />
                 </div>
             </div>
+            <div className="border border-gray-300 mt-16">
+            </div>
+            {/* buttons */}
+            <div className="flex justify-between my-8">
+                <input className="btn bg-none border border-[#626ee8] text-[#626ee8] rounded-full" type="submit" value="Advanced" />
+                <input className="btn bg-[#626ee8] text-white rounded-full" type="submit" value="Save" />
+            </div>
         </div>
     );
 };
