@@ -3,20 +3,24 @@ import logo from '../../assets/logo.png'
 import profile from '../../assets/profile.png'
 import { GoChevronDown, GoPlus } from 'react-icons/go';
 import { BiMessageAltDetail } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+    const location = useLocation();
+    console.log(location);
     return (
-        <nav className=" flex items-center justify-between p-3">
+        <nav className=" flex items-center justify-between p-3 shadow-md">
             {/* navbar-left */}
             <div className='flex items-center w-1/3 justify-between'>
                 <figure className='flex items-center gap-1'>
                     <img src={logo} alt="" />
                     <p className='text-xl font-semibold text-gray-700'>Car Booking</p>
                 </figure>
-                <div>
-                    <p className='text-3xl font-bold'>Calendar</p>
-                </div>
+                {
+                    location.pathname === '/' && <div>
+                        <p className='text-3xl font-bold'>Calendar</p>
+                    </div>
+                }
             </div>
 
             {/* navbar-right */}
@@ -44,3 +48,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
