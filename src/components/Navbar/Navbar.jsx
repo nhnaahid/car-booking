@@ -3,6 +3,7 @@ import logo from '../../assets/logo.png'
 import profile from '../../assets/profile.png'
 import { GoChevronDown, GoPlus } from 'react-icons/go';
 import { BiMessageAltDetail } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -20,10 +21,12 @@ const Navbar = () => {
 
             {/* navbar-right */}
             <div className='flex items-center gap-7'>
-                <button className="flex items-center gap-1 p-2 rounded-lg bg-[#626ee8] text-white cursor-pointer">
-                    <GoPlus className='text-2xl' />
-                    <span className=''>Add Booking</span>
-                </button>
+                <Link to="/add-booking">
+                    <button className="flex items-center gap-1 p-2 rounded-lg bg-[#626ee8] text-white cursor-pointer">
+                        <GoPlus className='text-2xl' />
+                        <span className=''>Add Booking</span>
+                    </button>
+                </Link>
                 <IoNotificationsOutline className='text-2xl cursor-pointer text-gray-700' />
                 <BiMessageAltDetail className='text-2xl cursor-pointer text-gray-600' />
                 <div className='flex items-center gap-1 cursor-pointer'>
