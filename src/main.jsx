@@ -11,12 +11,14 @@ import MainLayout from './layouts/MainLayout';
 import Calendar from './pages/Calendar/Calendar';
 import AddBooking from './pages/AddBooking/AddBooking';
 import LayoutWithSideBar from './layouts/LayoutWithSideBar';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',

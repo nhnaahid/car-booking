@@ -22,9 +22,9 @@ const Navbar = () => {
                     close ? <AiOutlineClose></AiOutlineClose> : <AiOutlineMenu></AiOutlineMenu>
                 }
                 <div className={`${close ? 'top-[64px] left-0' : '-left-60 top-[64px]'} duration-700 flex flex-col items-start text-start md:hidden absolute text-sm p-4 gap-1 bg-white text-black h-screen shadow`}>
-                    <NavLink to="/" className="flex items-center gap-2 rounded-lg p-2"><GrCalendar className="text-xl" /><span>Calendar</span></NavLink>
-                    <NavLink to='/add-booking' className="flex items-center gap-2 rounded-lg p-2"><LuCalendarCheck2 className="text-xl" /><span>Add Booking</span></NavLink>
-                    <NavLink to='/workflows' className="flex items-center gap-2 rounded-lg p-2"><IoIosGitNetwork className="text-xl rotate-90" /><span>Workflows</span></NavLink>
+                    <NavLink to="/" className="flex items-center gap-2 rounded-lg p-2 hover:bg-base-300"><GrCalendar className="text-xl" /><span>Calendar</span></NavLink>
+                    <NavLink to='/add-booking' className="flex items-center gap-2 rounded-lg p-2 hover:bg-base-300"><LuCalendarCheck2 className="text-xl" /><span>Add Booking</span></NavLink>
+                    <NavLink to='/workflows' className="flex items-center gap-2 rounded-lg p-2 hover:bg-base-300"><IoIosGitNetwork className="text-xl rotate-90" /><span>Workflows</span></NavLink>
                 </div>
             </div>
             {/* navbar-left */}
@@ -45,7 +45,7 @@ const Navbar = () => {
             {/* navbar-right */}
             <div className='flex items-center gap-3 md:gap-4 lg:gap-7'>
                 <Link to="/add-booking" className='hidden md:block'>
-                    <button className="flex items-center gap-1 p-1 lg:p-2 rounded-lg bg-[#626ee8] text-white cursor-pointer">
+                    <button className="flex items-center gap-1 p-1 lg:p-2 rounded-lg bg-[#626ee8] text-white cursor-pointer hover:bg-[#3d4cb4] duration-500">
                         <GoPlus className='text-xl lg:text-2xl' />
                         <span className='text-sm lg:text-base'>Add Booking</span>
                     </button>
