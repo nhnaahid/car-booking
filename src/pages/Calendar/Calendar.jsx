@@ -1,7 +1,4 @@
-import { GrCalendar } from "react-icons/gr";
-import { IoIosGitNetwork } from "react-icons/io";
-import { LuCalendarCheck2 } from "react-icons/lu";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 import { ScheduleXCalendar, useCalendarApp } from "@schedule-x/react";
 import { createViewWeek, createViewDay, createViewMonthGrid } from "@schedule-x/calendar";
@@ -96,18 +93,8 @@ const CalendarPage = () => {
 
 
     return (
-        <div className="flex gap-5">
-            {/* sidebar */}
-            <div className="w-48 h-screen p-3 space-y-7 text-gray-700 hidden md:block">
-                <NavLink className="flex items-center gap-2 border rounded-lg p-2"><GrCalendar className="text-xl" /><span>Calendar</span></NavLink>
-                <NavLink className="flex items-center gap-2 border rounded-lg p-2"><LuCalendarCheck2 className="text-xl" /><span>Add Booking</span></NavLink>
-                <NavLink className="flex items-center gap-2 border rounded-lg p-2"><IoIosGitNetwork className="text-xl rotate-90" /><span>Workflows</span></NavLink>
-            </div>
-
-            {/* Main content */}
-            <div className="flex-1">
-                <ScheduleXCalendar calendarApp={calendar}></ScheduleXCalendar>
-            </div>
+        <div className="mb-16">
+            <ScheduleXCalendar calendarApp={calendar}></ScheduleXCalendar>
         </div>
     );
 };

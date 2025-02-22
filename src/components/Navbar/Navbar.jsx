@@ -17,47 +17,47 @@ const Navbar = () => {
 
     return (
         <nav className="flex items-center justify-between py-2 px-3 fixed z-20 w-full max-w-screen-2xl bg-white">
-            <div onClick={() => setClose(!close)} className="text-xl block md:hidden cursor-pointer">
+            <div onClick={() => setClose(!close)} className="md:text-xl block md:hidden cursor-pointer">
                 {
                     close ? <AiOutlineClose></AiOutlineClose> : <AiOutlineMenu></AiOutlineMenu>
                 }
                 <div className={`${close ? 'top-[64px] left-0' : '-left-60 top-[64px]'} duration-700 flex flex-col items-start text-start md:hidden absolute text-sm p-4 gap-1 bg-white text-black h-screen shadow`}>
-                    <NavLink className="flex items-center gap-2 rounded-lg p-2"><GrCalendar className="text-xl" /><span>Calendar</span></NavLink>
-                    <NavLink className="flex items-center gap-2 rounded-lg p-2"><LuCalendarCheck2 className="text-xl" /><span>Add Booking</span></NavLink>
-                    <NavLink className="flex items-center gap-2 rounded-lg p-2"><IoIosGitNetwork className="text-xl rotate-90" /><span>Workflows</span></NavLink>
+                    <NavLink to="/" className="flex items-center gap-2 rounded-lg p-2"><GrCalendar className="text-xl" /><span>Calendar</span></NavLink>
+                    <NavLink to='/add-booking' className="flex items-center gap-2 rounded-lg p-2"><LuCalendarCheck2 className="text-xl" /><span>Add Booking</span></NavLink>
+                    <NavLink to='/workflows' className="flex items-center gap-2 rounded-lg p-2"><IoIosGitNetwork className="text-xl rotate-90" /><span>Workflows</span></NavLink>
                 </div>
             </div>
             {/* navbar-left */}
             <div className='flex items-center w-1/3 justify-between'>
                 <Link to="/">
                     <figure className='flex items-center gap-1'>
-                        <img src={logo} alt="" />
-                        <p className='text-base md:text-xl font-semibold text-gray-700'>Car Booking</p>
+                        <img className='w-8 lg:w-12' src={logo} alt="" />
+                        <p className='text-sm lg:text-xl font-semibold text-gray-700'>Car Booking</p>
                     </figure>
                 </Link>
                 {
                     location.pathname === '/' && <div className='hidden md:block'>
-                        <p className='text-3xl font-bold'>Calendar</p>
+                        <p className='text-xl lg:text-3xl font-bold'>Calendar</p>
                     </div>
                 }
             </div>
 
             {/* navbar-right */}
-            <div className='flex items-center gap-7'>
+            <div className='flex items-center gap-3 md:gap-4 lg:gap-7'>
                 <Link to="/add-booking" className='hidden md:block'>
-                    <button className="flex items-center gap-1 p-2 rounded-lg bg-[#626ee8] text-white cursor-pointer">
-                        <GoPlus className='text-2xl' />
-                        <span className=''>Add Booking</span>
+                    <button className="flex items-center gap-1 p-1 lg:p-2 rounded-lg bg-[#626ee8] text-white cursor-pointer">
+                        <GoPlus className='text-xl lg:text-2xl' />
+                        <span className='text-sm lg:text-base'>Add Booking</span>
                     </button>
                 </Link>
 
-                <IoNotificationsOutline className='text-2xl cursor-pointer text-gray-700' />
-                <BiMessageAltDetail className='text-2xl cursor-pointer text-gray-600' />
+                <IoNotificationsOutline className='text-xl md:text-2xl cursor-pointer text-gray-700' />
+                <BiMessageAltDetail className='text-xl md:text-2xl cursor-pointer text-gray-600' />
 
                 <div className='flex items-center gap-1 cursor-pointer'>
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-12 rounded-full">
+                            <div className="w-8 md:w-12 rounded-full">
                                 <img
                                     alt="Tailwind CSS Navbar component"
                                     src={profile} />
@@ -75,7 +75,7 @@ const Navbar = () => {
                             <li><a>Logout</a></li>
                         </ul>
                     </div>
-                    <GoChevronDown className='text-xl text-gray-700' />
+                    <GoChevronDown className='md:text-xl text-gray-700' />
                 </div>
             </div>
 

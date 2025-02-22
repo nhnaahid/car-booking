@@ -10,6 +10,7 @@ import {
 import MainLayout from './layouts/MainLayout';
 import Calendar from './pages/Calendar/Calendar';
 import AddBooking from './pages/AddBooking/AddBooking';
+import LayoutWithSideBar from './layouts/LayoutWithSideBar';
 
 
 const router = createBrowserRouter([
@@ -18,13 +19,19 @@ const router = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     children: [
       {
-        path: "/",
-        element: <Calendar></Calendar>,
-        loader: () => fetch('https://www.gov.uk/bank-holidays.json?ref=public_apis&utm_medium=website')
-      },
-      {
-        path: "/add-booking",
-        element: <AddBooking></AddBooking>
+        path: '/',
+        element: <LayoutWithSideBar></LayoutWithSideBar>,
+        children: [
+          {
+            path: "/",
+            element: <Calendar></Calendar>,
+            loader: () => fetch('https://www.gov.uk/bank-holidays.json?ref=public_apis&utm_medium=website')
+          },
+          {
+            path: "/add-booking",
+            element: <AddBooking></AddBooking>
+          }
+        ]
       }
     ]
   },

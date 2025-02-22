@@ -84,27 +84,27 @@ const AddBooking = () => {
 
 
     return (
-        <div className="p-2 w-[80%] mx-auto mt-12">
+        <div className="p-2 w-full md:w-[80%] mx-auto -mt-7">
             <div>
-                <h1 className="text-2xl font-bold">Add Car Booking</h1>
+                <h1 className="text-xl md:text-2xl font-bold">Add Car Booking</h1>
             </div>
 
             <div className="border-b-2 border-gray-300 mt-5">
             </div>
 
-            <form onSubmit={handleCarBooking} className="mt-7">
+            <form onSubmit={handleCarBooking} className="mt-7 w-full px-2">
                 {/* Basic Information */}
-                <div className="space-y-7">
-                    <h3 className="text-xl text-[#626ee8] font-semibold">Basic Information</h3>
+                <div className="space-y-5 md:space-y-7">
+                    <h3 className="text-lg md:text-xl text-[#626ee8] font-semibold">Basic Information</h3>
                     {/* subject + car select field*/}
-                    <div className="flex items-center justify-between">
-                        <div className="flex flex-col w-[40%] space-y-2">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0">
+                        <div className="flex flex-col w-full md:w-2/5 space-y-2">
                             <label className="font-semibold">Subject</label>
-                            <input className="p-2 rounded-full border-none bg-base-300 placeholder-black" type="text" name="subject" id="subject" placeholder=" Write a short note" required />
+                            <input className="p-2 w-[70%] md:w-full rounded-full border-none bg-base-300 placeholder-black" type="text" name="subject" id="subject" placeholder=" Write a short note" required />
                         </div>
-                        <div className="flex flex-col w-[40%] space-y-2">
+                        <div className="flex flex-col w-full md:w-[40%] space-y-2">
                             <label className="font-semibold">Select Car</label>
-                            <select className="p-2 rounded-full border-none bg-base-300 placeholder-black" name="car" id="car" required>
+                            <select className="w-[70%] md:w-full p-2 rounded-full border-none bg-base-300 placeholder-black" name="car" id="car" required>
                                 <option value="toyota">Toyota</option>
                                 <option value="bmw">BMW</option>
                                 <option value="ford">Ford</option>
@@ -114,7 +114,7 @@ const AddBooking = () => {
                         </div>
                     </div>
                     {/* Booking date field */}
-                    <div className="flex flex-col w-[40%] space-y-2">
+                    <div className="flex flex-col w-[70%] md:w-[40%] space-y-2">
                         <label className="font-semibold">Booking Date</label>
                         <DatePicker
                             className="w-full p-2 rounded-full border-none bg-base-300 placeholder-black"
@@ -128,8 +128,8 @@ const AddBooking = () => {
                         />
                     </div>
                     {/* Select time field */}
-                    <div className="flex justify-between items-center">
-                        <div className="flex flex-col w-[40%] space-y-2">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 md:gap-0">
+                        <div className="flex flex-col w-[70%] md:w-[40%] space-y-2">
                             <label className="font-semibold">Start Time</label>
                             <DatePicker
                                 className="w-full p-2 rounded-full border-none bg-base-300"
@@ -146,7 +146,7 @@ const AddBooking = () => {
                                 required
                             />
                         </div>
-                        <div className="flex flex-col w-[40%] space-y-2">
+                        <div className="flex flex-col w-[70%] md:w-[40%] space-y-2">
                             <label className="font-semibold">End Time</label>
                             <DatePicker
                                 className="w-full p-2 rounded-full border-none bg-base-300"
@@ -171,7 +171,7 @@ const AddBooking = () => {
                 <div className="space-y-7 mt-7">
                     <h3 className="text-xl text-[#626ee8] font-semibold">Repeat Option</h3>
                     {/* repeat type */}
-                    <div className="flex flex-col w-[40%] space-y-2">
+                    <div className="flex flex-col w-[70%] md:w-[40%] space-y-2">
                         <label className="font-semibold">Repeat On</label>
                         <select
                             className="p-2 rounded-full border-none bg-base-300 placeholder-black" name="repeat"
@@ -185,7 +185,7 @@ const AddBooking = () => {
                         </select>
                     </div>
                     {/* Days */}
-                    <div className={`${repeatType !== 'weekly' ? 'hidden' : 'flex gap-12'}`}>
+                    <div className={`${repeatType !== 'weekly' ? 'hidden' : 'flex gap-3 md:gap-12'} grid grid-cols-4 md:grid-cols-7`}>
                         {
                             ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"].map((day, idx) => <div key={idx} className="items-center flex gap-2">
                                 <input
@@ -200,7 +200,7 @@ const AddBooking = () => {
                         }
                     </div>
                     {/* end date */}
-                    <div className="flex flex-col w-[40%] space-y-2">
+                    <div className="flex flex-col w-[70%] md:w-[40%] space-y-2">
                         <label className="font-semibold">End Date</label>
                         <DatePicker
                             className="w-full p-2 rounded-full border-none bg-base-300"
