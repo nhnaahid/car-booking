@@ -6,9 +6,11 @@ import { Toaster } from 'react-hot-toast';
 const MainLayout = () => {
     return (
         <div className="font-inter">
-            <Navbar></Navbar>
+            <div className="h-[64px] lg:h-[72px]">
+                <Navbar></Navbar>
+            </div>
             <Outlet></Outlet>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
             <Toaster />
         </div>
     );

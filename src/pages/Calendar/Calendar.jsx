@@ -98,14 +98,14 @@ const CalendarPage = () => {
     return (
         <div className="flex gap-5">
             {/* sidebar */}
-            <div className="w-48 h-screen border p-3 space-y-7 text-gray-700">
+            <div className="w-48 h-screen p-3 space-y-7 text-gray-700 hidden md:block">
                 <NavLink className="flex items-center gap-2 border rounded-lg p-2"><GrCalendar className="text-xl" /><span>Calendar</span></NavLink>
                 <NavLink className="flex items-center gap-2 border rounded-lg p-2"><LuCalendarCheck2 className="text-xl" /><span>Add Booking</span></NavLink>
                 <NavLink className="flex items-center gap-2 border rounded-lg p-2"><IoIosGitNetwork className="text-xl rotate-90" /><span>Workflows</span></NavLink>
             </div>
 
             {/* Main content */}
-            <div className="border flex-1">
+            <div className="flex-1">
                 <ScheduleXCalendar calendarApp={calendar}></ScheduleXCalendar>
             </div>
         </div>
